@@ -16,6 +16,12 @@
 
                     <span><?= $truckItem['locationdescription'] ?></span>
                 </div>
+                <div class="col-12">
+                    <?php include('src/views/components/foodTruckCalification.php') ?>
+                </div>
+                <div class="col-12 text-end">
+                    <a href="#" class="text-muted">See comments</a>
+                </div>
             </div>
         </div>
     </div>
