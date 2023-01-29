@@ -13,5 +13,6 @@ if (!is_null($inputSearch)) {
             @include('src/Views/components/truckItem.php');
         }
     } else {
+        @include('src/Views/components/notFound.php');
     }
 }

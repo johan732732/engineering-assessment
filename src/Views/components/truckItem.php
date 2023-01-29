@@ -12,9 +12,10 @@
                     <a target="_blank" href="https://maps.google.com/?q=<?= $truckItem['latitude'] ?>,<?= $truckItem['longitude'] ?>" class="text-decoration-none">
                         <i class="fa fa-location-dot text-danger"></i>
                         <small class="text-muted" for="">Address:</small>
+                        <span><?= $truckItem['locationdescription'] ?></span>
                     </a>
 
-                    <span><?= $truckItem['locationdescription'] ?></span>
+
                 </div>
                 <div class="col-12">
                     <?php include('src/views/components/foodTruckCalification.php') ?>

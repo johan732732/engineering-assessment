@@ -17,11 +17,11 @@
             <div class="col-8 shadow p-3 mb-5 bg-body rounded">
                 <form method="POST" action="index.php" id="getFoodTrucksForm">
                     <div class="mb-3">
-                        <label class="h4" for="searchInput">Search food trucks</label>
-                        <input type="text" name="searchInput" class="form-control" placeholder="Search food trucks" id="searchInput" value="<?php echo $_REQUEST['searchInput'] ?? ''; ?>">
-                        <small class="form-text text-muted">You can search by city, country, food.....</small>
+                        <label class="h4 pb-2" for="searchInput">What do you want to taste today?</label>
+                        <input type="text" name="searchInput" class="form-control" placeholder="Hot dog, burritos, Coffe..." id="searchInput" value="<?php echo $_REQUEST['searchInput'] ?? ''; ?>">
+                        <small class="form-text text-muted">You can search by food items, business name or location</small>
                     </div>
-                    <div class="input-group">
+                    <div class="input-group d-flex justify-content-center">
                         <input type="submit" class="btn btn-primary" value="Search">
                     </div>
                 </form>

@@ -9,7 +9,7 @@ class ApiController
     {
         try {
 
-            $listContent = file_get_contents(ApiController::getTrucksApiUrl());
+            $listContent = file_get_contents(ApiController::applyFilter($inputSearch));
             $listContent = json_decode($listContent, true);
 
             return $listContent;
@@ -25,7 +25,28 @@ class ApiController
 
     public static function getTrucksApiUrl()
     {
-        $filterByFacilityType = "?\$where=facilitytype='Truck'";
-        return self::API_URL . $filterByFacilityType;
+        $url = self::API_URL;
+        $facilityFilter = "?\$where=1=1";
+        $url .= $facilityFilter;
+
+        return $url;
+    }
+
+    public static function applyFilter(string $filter)
+    {
+        $url = ApiController::getTrucksApiUrl();
+
+        if (!empty($filter)) {
+
+            $filter = trim($filter);
+            $foodsItemFilter = "fooditems like '%{$filter}%'";
+            $applicantFilter = "applicant like '%{$filter}%'";
+            $addressFilter = "address like '%{$filter}%'";
+            $locationdescriptionFilter = "locationdescription like '%{$filter}%'";
+
+            $url .= rawurlencode(" AND ({$foodsItemFilter} OR {$applicantFilter} OR {$addressFilter} OR {$locationdescriptionFilter})");
+        }
+
+        return $url;
     }
 }
